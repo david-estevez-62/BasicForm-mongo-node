@@ -26,6 +26,18 @@ app.get('/applicant', function(req, res){
 
 app.post('/submitapplication', function(req, res){
 	res.render('applicant', req.body)
+
+
+	var applicant =  new Applicant({
+	name: req.body.name,
+	bio: req.body.bio,
+	skills: req.body.skills,
+	years: req.body.years,
+	why: req.body.why
+	})
+
+	applicant.save()
+
 });
 
 // // creates and applicant
